@@ -1,0 +1,20 @@
+{
+  "name": "@wildpeaks/proto-tooltip",
+  "version": "1.0.0",
+  "description": "PROTO Tooltip",
+  "main": "src/proto.Tooltip.wrl",
+  "files": [
+    "src/proto.Tooltip.wrl"
+  ],
+  "repository": "https://github.com/wildpeaks/proto-tooltip",
+  "keywords": [
+    "wildpeaks",
+    "vrml"
+  ],
+  "author": "Cecile Muller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wildpeaks/proto-tooltip/issues"
+  },
+  "homepage": "https://github.com/wildpeaks/proto-tooltip#readme"
+}
