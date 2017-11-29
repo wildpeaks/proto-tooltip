@@ -20,10 +20,10 @@ Background {
 }
 
 Viewpoint {
-    position 0.000 0.000 20
-    orientation 0.000 0.000 1.000 0.000
-    fieldOfView 0.785
-	description	"Default"
+	position 0.000 0.000 20
+	orientation 0.000 0.000 1.000 0.000
+	fieldOfView 0.785
+	description "Default"
 }
 
 
@@ -86,7 +86,7 @@ Selection {
 # Sets the tip position where the mouse is hovering
 Group {
 	children [
-		DEF	touchsensor TouchSensor {}
+		DEF touchsensor TouchSensor {}
 		Shape {
 			appearance Appearance {
 				material Material {
