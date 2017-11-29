@@ -5,8 +5,10 @@ PROTO Tooltip [
 	exposedField  SFVec3f  tip     0 0 0
 	exposedField  SFVec2f  size    2 2
 	exposedField  SFFloat  border  1
+	field         SFBool   solid   TRUE
 ]{
 	DEF ifs IndexedFaceSet {
+		solid IS solid
 		coord DEF coords Coordinate {}
 	}
 
@@ -95,62 +97,65 @@ PROTO Tooltip [
 			var y8 = y1 + (0.92388 * cleanedBorder);
 			var y9 = y1 + (0.980785 * cleanedBorder);
 
+			var centerX = center.x;
+			var centerY = center.y;
+
 			coords.point = new MFVec3f(
-				new SFVec3f(-x2, -y1, 0),
-				new SFVec3f(-x1, -y1, 0),
-				new SFVec3f(x1, -y1, 0),
-				new SFVec3f(x2, -y1, 0),
+				new SFVec3f(-x2 + centerX, -y1 + centerY, 0),
+				new SFVec3f(-x1 + centerX, -y1 + centerY, 0),
+				new SFVec3f(x1 + centerX, -y1 + centerY, 0),
+				new SFVec3f(x2 + centerX, -y1 + centerY, 0),
 
-				new SFVec3f(-x2, y1, 0),
-				new SFVec3f(-x1, y1, 0),
-				new SFVec3f(x1, y1, 0),
-				new SFVec3f(x2, y1, 0),
+				new SFVec3f(-x2 + centerX, y1 + centerY, 0),
+				new SFVec3f(-x1 + centerX, y1 + centerY, 0),
+				new SFVec3f(x1 + centerX, y1 + centerY, 0),
+				new SFVec3f(x2 + centerX, y1 + centerY, 0),
 
-				new SFVec3f(-x1, -y2, 0),
-				new SFVec3f(x1, -y2, 0),
+				new SFVec3f(-x1 + centerX, -y2 + centerY, 0),
+				new SFVec3f(x1 + centerX, -y2 + centerY, 0),
 
-				new SFVec3f(-x1, y2, 0),
-				new SFVec3f(x1, y2, 0),
+				new SFVec3f(-x1 + centerX, y2 + centerY, 0),
+				new SFVec3f(x1 + centerX, y2 + centerY, 0),
 
 				tip,
 
-				new SFVec3f(-x9, -y3, 0),
-				new SFVec3f(-x8, -y4, 0),
-				new SFVec3f(-x7, -y5, 0),
-				new SFVec3f(-x6, -y6, 0),
-				new SFVec3f(-x5, -y7, 0),
-				new SFVec3f(-x4, -y8, 0),
-				new SFVec3f(-x3, -y9, 0),
+				new SFVec3f(-x9 + centerX, -y3 + centerY, 0),
+				new SFVec3f(-x8 + centerX, -y4 + centerY, 0),
+				new SFVec3f(-x7 + centerX, -y5 + centerY, 0),
+				new SFVec3f(-x6 + centerX, -y6 + centerY, 0),
+				new SFVec3f(-x5 + centerX, -y7 + centerY, 0),
+				new SFVec3f(-x4 + centerX, -y8 + centerY, 0),
+				new SFVec3f(-x3 + centerX, -y9 + centerY, 0),
 
-				new SFVec3f(x9, -y3, 0),
-				new SFVec3f(x8, -y4, 0),
-				new SFVec3f(x7, -y5, 0),
-				new SFVec3f(x6, -y6, 0),
-				new SFVec3f(x5, -y7, 0),
-				new SFVec3f(x4, -y8, 0),
-				new SFVec3f(x3, -y9, 0),
+				new SFVec3f(x9 + centerX, -y3 + centerY, 0),
+				new SFVec3f(x8 + centerX, -y4 + centerY, 0),
+				new SFVec3f(x7 + centerX, -y5 + centerY, 0),
+				new SFVec3f(x6 + centerX, -y6 + centerY, 0),
+				new SFVec3f(x5 + centerX, -y7 + centerY, 0),
+				new SFVec3f(x4 + centerX, -y8 + centerY, 0),
+				new SFVec3f(x3 + centerX, -y9 + centerY, 0),
 
-				new SFVec3f(-x3, y9, 0),
-				new SFVec3f(-x4, y8, 0),
-				new SFVec3f(-x5, y7, 0),
-				new SFVec3f(-x6, y6, 0),
-				new SFVec3f(-x7, y5, 0),
-				new SFVec3f(-x8, y4, 0),
-				new SFVec3f(-x9, y3, 0),
+				new SFVec3f(-x3 + centerX, y9 + centerY, 0),
+				new SFVec3f(-x4 + centerX, y8 + centerY, 0),
+				new SFVec3f(-x5 + centerX, y7 + centerY, 0),
+				new SFVec3f(-x6 + centerX, y6 + centerY, 0),
+				new SFVec3f(-x7 + centerX, y5 + centerY, 0),
+				new SFVec3f(-x8 + centerX, y4 + centerY, 0),
+				new SFVec3f(-x9 + centerX, y3 + centerY, 0),
 
-				new SFVec3f(x3, y9, 0),
-				new SFVec3f(x4, y8, 0),
-				new SFVec3f(x5, y7, 0),
-				new SFVec3f(x6, y6, 0),
-				new SFVec3f(x7, y5, 0),
-				new SFVec3f(x8, y4, 0),
-				new SFVec3f(x9, y3, 0)
+				new SFVec3f(x3 + centerX, y9 + centerY, 0),
+				new SFVec3f(x4 + centerX, y8 + centerY, 0),
+				new SFVec3f(x5 + centerX, y7 + centerY, 0),
+				new SFVec3f(x6 + centerX, y6 + centerY, 0),
+				new SFVec3f(x7 + centerX, y5 + centerY, 0),
+				new SFVec3f(x8 + centerX, y4 + centerY, 0),
+				new SFVec3f(x9 + centerX, y3 + centerY, 0)
 			);
 
-			var right = (tip.x >= x1);
-			var left = (tip.x <= -x1);
-			var top = (tip.y >= y1);
-			var bottom = (tip.y <= -y1);
+			var right = (tip.x >= (x1 + centerX));
+			var left = (tip.x <= (-x1 + centerX));
+			var top = (tip.y >= (y1 + centerY));
+			var bottom = (tip.y <= (-y1 + centerY));
 
 			var tipCoordIndex;
 			if (top && right){

@@ -5,6 +5,7 @@ EXTERNPROTO Tooltip [
 	exposedField  SFVec3f  tip
 	exposedField  SFVec2f  size
 	exposedField  SFFloat  border
+	field         SFBool   solid
 ] "../src/proto.Tooltip.wrl#Tooltip"
 
 
@@ -80,6 +81,10 @@ PROTO Example [
 	}
 }
 
+
+WorldInfo {
+	title "Tests the 'border' property of Tooltip"
+}
 
 Background {
 	skyColor [ 0.792 0.792 0.827 ]

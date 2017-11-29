@@ -9,6 +9,7 @@ The side where the tip is attached to the rectangle is **automatically deduced f
 		exposedField  SFVec3f  tip
 		exposedField  SFVec2f  size
 		exposedField  SFFloat  border
+		field         SFBool   solid
 	] "proto.Tooltip.wrl#Tooltip"
 
 
@@ -61,6 +62,18 @@ Definition:
  - Field Type: `exposedField`
  - Data Type: `SFVec3f`
  - Default Value: `1`
+
+
+-------------------------------------------------------------------------------
+
+## Property `solid`
+
+Like `IndexedFaceSet.solid`, renders both sides (`FALSE`) or only the front side (`TRUE`).
+
+Definition:
+ - Field Type: `field`
+ - Data Type: `SFBool`
+ - Default Value: `TRUE`
 
 
 -------------------------------------------------------------------------------

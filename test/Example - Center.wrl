@@ -1,0 +1,82 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO Tooltip [
+	exposedField  SFVec3f  center
+	exposedField  SFVec3f  tip
+	exposedField  SFVec2f  size
+	exposedField  SFFloat  border
+	field         SFBool   solid
+] "../src/proto.Tooltip.wrl#Tooltip"
+
+
+PROTO Example [
+	exposedField  SFVec3f   center       0 0 0
+	exposedField  SFColor   color        0 0 0
+]{
+	Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 0 0 0
+				emissiveColor IS color
+			}
+		}
+		geometry Tooltip {
+			center IS center
+			tip 0 0 0
+			size 2 1
+			border 0.25
+		}
+	}
+}
+
+
+WorldInfo {
+	title "Tests the 'center' property of Tooltip"
+}
+
+Background {
+	skyColor [ 0.792 0.792 0.827 ]
+	groundColor [ 0.91 0.91 0.945, 0.91 0.91 0.945, 0.851 0.851 0.890, 0.792 0.792 0.827 ]
+	groundAngle [ 1.2, 1.5, 1.54 ]
+}
+
+Viewpoint {
+	position 0 0 15
+	orientation 0 1 0 0
+	fieldOfView 0.785
+	description	"Default"
+}
+
+Example	{
+	color 0 0 0
+	center 2 0 0
+}
+Example	{
+	color 1 0 0
+	center -2 0 0
+}
+Example	{
+	color 0 1 0
+	center 0 3 0
+}
+Example	{
+	color 0 0 1
+	center 0 -3 0
+}
+Example	{
+	color 0.5 0.5 0.5
+	center 4 -4 0
+}
+Example	{
+	color 0.5 0 0
+	center -4 4 0
+}
+Example	{
+	color 0 0.5 0
+	center 4 4 0
+}
+Example	{
+	color 0 0 0.5
+	center -4 -4 0
+}
+
