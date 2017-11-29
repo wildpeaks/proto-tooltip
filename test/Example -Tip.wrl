@@ -1,0 +1,100 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO Tooltip [
+	exposedField  SFVec3f  center
+	exposedField  SFVec3f  tip
+	exposedField  SFVec2f  size
+	exposedField  SFFloat  border
+] "../src/proto.Tooltip.wrl#Tooltip"
+
+
+Background {
+	skyColor [ 0.792 0.792 0.827 ]
+	groundColor [ 0.91 0.91 0.945, 0.91 0.91 0.945, 0.851 0.851 0.890, 0.792 0.792 0.827 ]
+	groundAngle [ 1.2, 1.5, 1.54 ]
+}
+
+Viewpoint {
+    position 0.000 0.000 20
+    orientation 0.000 0.000 1.000 0.000
+    fieldOfView 0.785
+	description	"Default"
+}
+
+
+Selection {
+	select FALSE
+	collide FALSE
+	children [
+		Shape {
+			appearance Appearance {
+				material Material {
+					diffuseColor 0 0 0
+					emissiveColor 0 0 0
+				}
+			}
+			geometry DEF tooltip Tooltip {
+				center 0 0 0
+				tip 0 -5 0
+				size 4 1.5
+				border 0.5
+			}
+		}
+
+		DrawGroup {
+			restoreOp TRUE
+			drawOp DrawOp {
+				op [0, 0, 1, 0]
+			}
+			sortAlphaInGroup TRUE
+			children [
+				Transform {
+					translation 0 0.75 0
+					children Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor 0 0 0
+								emissiveColor 1 1 1
+							}
+						}
+						geometry Text {
+							string [
+								"Mouseover around"
+								"the tooltip to set"
+								"the tip position"
+							]
+							fontStyle FontStyle {
+								size 0.5
+								family "Consolas"
+								style "BOLD USE_TEXTURE"
+								justify "MIDDLE"
+							}
+						}
+					}
+				}
+			]
+		}
+	]
+}
+
+
+# Sets the tip position where the mouse is hovering
+Group {
+	children [
+		DEF	touchsensor TouchSensor {}
+		Shape {
+			appearance Appearance {
+				material Material {
+					diffuseColor 0 0 0
+					emissiveColor 1 1 1
+					transparency 0.95
+				}
+			}
+			geometry Rectangle {
+				size 100 100
+			}
+		}
+	]
+}
+ROUTE touchsensor.hitPoint_changed TO tooltip.tip
+

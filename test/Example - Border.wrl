@@ -1,0 +1,120 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO Tooltip [
+	exposedField  SFVec3f  center
+	exposedField  SFVec3f  tip
+	exposedField  SFVec2f  size
+	exposedField  SFFloat  border
+] "../src/proto.Tooltip.wrl#Tooltip"
+
+
+PROTO Example [
+	exposedField  SFVec3f   translation  0 0 0
+	exposedField  SFFloat   border       0
+	exposedField  MFString  string       []
+]{
+	Transform {
+		translation IS translation
+		children [
+
+			Shape {
+				appearance Appearance {
+					material Material {
+						diffuseColor 0 0 0
+						emissiveColor 0 0 0
+					}
+				}
+				geometry DEF tooltip Tooltip {
+					center 0 0 0
+					tip 4 0 0
+					size 4 2
+					border IS border
+				}
+			}
+
+			# Contents of the tooltip
+			DrawGroup {
+				restoreOp TRUE
+				drawOp DrawOp {
+					op [0, 0, 1, 0]
+				}
+				sortAlphaInGroup TRUE
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor 0 0 0
+								emissiveColor 0 1 0
+							}
+						}
+						geometry IndexedLineSet {
+							coordIndex [0 3 2 1 0 -1]
+							coord Coordinate {
+								point [-2 1 0, 2 1 0, 2 -1 0, -2 -1 0]
+							}
+						}
+					}
+					Transform {
+						translation 0 0.25 0
+						children Shape {
+							appearance Appearance {
+								material Material {
+									diffuseColor 0 0 0
+									emissiveColor 1 1 1
+								}
+							}
+							geometry Text {
+								string IS string
+								fontStyle FontStyle {
+									size 0.5
+									family "Consolas"
+									style "BOLD USE_TEXTURE"
+									justify "MIDDLE"
+								}
+							}
+						}
+					}
+				]
+			}		
+		]
+	}
+}
+
+
+Background {
+	skyColor [ 0.792 0.792 0.827 ]
+	groundColor [ 0.91 0.91 0.945, 0.91 0.91 0.945, 0.851 0.851 0.890, 0.792 0.792 0.827 ]
+	groundAngle [ 1.2, 1.5, 1.54 ]
+}
+
+Viewpoint {
+	position 0 -6.35 21
+	orientation 0 1 0 0
+	fieldOfView 0.785
+	description	"Default"
+}
+
+Example {
+	translation 0 0 0
+	border -1
+	string "Border -1"
+}
+
+Example {
+	translation 0 -4 0
+	border 0
+	string "Border 0"
+}
+
+Example {
+	translation 0 -8 0
+	border 0.25
+	string "Border 0.25"
+}
+
+Example {
+	translation 0 -12 0
+	border 1
+	string "Border 1"
+}
+
