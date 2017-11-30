@@ -8,7 +8,7 @@ The side where the tip is attached to the rectangle is **automatically deduced f
 		exposedField  SFVec3f  center
 		exposedField  SFVec3f  tip
 		exposedField  SFVec2f  size
-		exposedField  SFFloat  border
+		exposedField  SFFloat  radius
 		field         SFBool   solid
 	] "proto.Tooltip.wrl#Tooltip"
 
@@ -54,7 +54,7 @@ Definition:
 
 -------------------------------------------------------------------------------
 
-## Property `border`
+## Property `radius`
 
 **Radius** of the rounded border of the rectangle.
 

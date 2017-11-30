@@ -4,7 +4,7 @@ EXTERNPROTO Tooltip [
 	exposedField  SFVec3f  center
 	exposedField  SFVec3f  tip
 	exposedField  SFVec2f  size
-	exposedField  SFFloat  border
+	exposedField  SFFloat  radius
 	field         SFBool   solid
 ] "../src/proto.Tooltip.wrl#Tooltip"
 
@@ -24,7 +24,7 @@ PROTO Example [
 			center IS center
 			tip 0 0 0
 			size 2 1
-			border 0.25
+			radius 0.25
 		}
 	}
 }

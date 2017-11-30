@@ -4,7 +4,7 @@ PROTO Tooltip [
 	exposedField  SFVec3f  center  0 0 0
 	exposedField  SFVec3f  tip     0 0 0
 	exposedField  SFVec2f  size    2 2
-	exposedField  SFFloat  border  1
+	exposedField  SFFloat  radius  1
 	field         SFBool   solid   TRUE
 ]{
 	DEF ifs IndexedFaceSet {
@@ -15,7 +15,7 @@ PROTO Tooltip [
 	Script {
 		exposedField  SFVec3f  center          IS center
 		exposedField  SFVec3f  tip             IS tip
-		exposedField  SFFloat  border          IS border
+		exposedField  SFFloat  radius          IS radius
 		exposedField  SFVec2f  size            IS size
 
 		field         SFNode   ifs             USE ifs
@@ -39,7 +39,7 @@ PROTO Tooltip [
 		]
 		field         MFInt32  tipBottomRight  [
 			3 20 12 3 -1,
-			20 21 12 20 -1, 
+			20 21 12 20 -1,
 			21 22 12 21 -1,
 			22 23 12 22 -1,
 			23 24 12 23 -1,
@@ -73,29 +73,29 @@ PROTO Tooltip [
 
 
 		function updateGeometry(){
-			var cleanedBorder = Math.max(0, border);
+			var cleanedRadius = Math.max(0, radius);
 			var cleanedWidth = Math.max(0, size[0]);
 			var cleanedHeight = Math.max(0, size[1]);
 
 			var x1 = cleanedWidth / 2;
-			var x2 = x1 + cleanedBorder;
-			var x3 = x1 + (0.19509 * cleanedBorder);
-			var x4 = x1 + (0.382684 * cleanedBorder);
-			var x5 = x1 + (0.55557 * cleanedBorder);
-			var x6 = x1 + (0.707107 * cleanedBorder);
-			var x7 = x1 + (0.83147 * cleanedBorder);
-			var x8 = x1 + (0.92388 * cleanedBorder);
-			var x9 = x1 + (0.980785 * cleanedBorder);
+			var x2 = x1 + cleanedRadius;
+			var x3 = x1 + (0.19509 * cleanedRadius);
+			var x4 = x1 + (0.382684 * cleanedRadius);
+			var x5 = x1 + (0.55557 * cleanedRadius);
+			var x6 = x1 + (0.707107 * cleanedRadius);
+			var x7 = x1 + (0.83147 * cleanedRadius);
+			var x8 = x1 + (0.92388 * cleanedRadius);
+			var x9 = x1 + (0.980785 * cleanedRadius);
 
 			var y1 = cleanedHeight / 2;
-			var y2 = y1 + cleanedBorder;
-			var y3 = y1 + (0.19509 * cleanedBorder);
-			var y4 = y1 + (0.382684 * cleanedBorder);
-			var y5 = y1 + (0.55557 * cleanedBorder);
-			var y6 = y1 + (0.707107 * cleanedBorder);
-			var y7 = y1 + (0.83147 * cleanedBorder);
-			var y8 = y1 + (0.92388 * cleanedBorder);
-			var y9 = y1 + (0.980785 * cleanedBorder);
+			var y2 = y1 + cleanedRadius;
+			var y3 = y1 + (0.19509 * cleanedRadius);
+			var y4 = y1 + (0.382684 * cleanedRadius);
+			var y5 = y1 + (0.55557 * cleanedRadius);
+			var y6 = y1 + (0.707107 * cleanedRadius);
+			var y7 = y1 + (0.83147 * cleanedRadius);
+			var y8 = y1 + (0.92388 * cleanedRadius);
+			var y9 = y1 + (0.980785 * cleanedRadius);
 
 			var centerX = center.x;
 			var centerY = center.y;
@@ -236,7 +236,7 @@ PROTO Tooltip [
 
 		function center(){}
 		function tip(){}
-		function border(){}
+		function radius(){}
 		function size(){}
 		function eventsProcessed(){
 			updateGeometry();

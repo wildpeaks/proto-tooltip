@@ -4,7 +4,7 @@ EXTERNPROTO Tooltip [
 	exposedField  SFVec3f  center
 	exposedField  SFVec3f  tip
 	exposedField  SFVec2f  size
-	exposedField  SFFloat  border
+	exposedField  SFFloat  radius
 	field         SFBool   solid
 ] "../src/proto.Tooltip.wrl#Tooltip"
 
@@ -34,7 +34,7 @@ DEF example-1 Transform {
 		geometry Tooltip {
 			solid TRUE
 			size 2 1
-			border 0.25
+			radius 0.25
 			tip 2 -2 0
 		}
 	}
@@ -47,7 +47,7 @@ DEF example-2 Transform {
 		geometry Tooltip {
 			solid FALSE
 			size 2 1
-			border 0.25
+			radius 0.25
 			tip 2 -2 0
 		}
 	}

@@ -4,14 +4,14 @@ EXTERNPROTO Tooltip [
 	exposedField  SFVec3f  center
 	exposedField  SFVec3f  tip
 	exposedField  SFVec2f  size
-	exposedField  SFFloat  border
+	exposedField  SFFloat  radius
 	field         SFBool   solid
 ] "../src/proto.Tooltip.wrl#Tooltip"
 
 
 PROTO Example [
 	exposedField  SFVec3f   translation  0 0 0
-	exposedField  SFFloat   border       0
+	exposedField  SFFloat   radius       0
 	exposedField  MFString  string       []
 ]{
 	Transform {
@@ -29,7 +29,7 @@ PROTO Example [
 					center 0 0 0
 					tip 4 0 0
 					size 4 2
-					border IS border
+					radius IS radius
 				}
 			}
 
@@ -83,7 +83,7 @@ PROTO Example [
 
 
 WorldInfo {
-	title "Tests the 'border' property of Tooltip"
+	title "Tests the 'radius' property of Tooltip"
 }
 
 Background {
@@ -101,25 +101,25 @@ Viewpoint {
 
 Example {
 	translation 0 0 0
-	border -1
+	radius -1
 	string "Border -1"
 }
 
 Example {
 	translation 0 -4 0
-	border 0
+	radius 0
 	string "Border 0"
 }
 
 Example {
 	translation 0 -8 0
-	border 0.25
+	radius 0.25
 	string "Border 0.25"
 }
 
 Example {
 	translation 0 -12 0
-	border 1
+	radius 1
 	string "Border 1"
 }
 
